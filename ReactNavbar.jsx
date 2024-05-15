@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar2 = () => {
   const [show, setShow] = useState(false);
@@ -8,8 +9,9 @@ const Navbar2 = () => {
   };
 
   return (
-    <div className="2xl:container bg-red-500">
+    <div className="2xl:container bg-red-500 mx-auto">
       <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 bg-green-600">
+        {/* logo */}
         <div className="bg-yellow-50 flex justify-between">
           <p>Logo</p>
           <div>
@@ -41,12 +43,18 @@ const Navbar2 = () => {
             )}
           </div>
         </div>
+        {/* content */}
         <div className={show ? "block" : "hidden md:block"}>
           <ul className="bg-slate-500 flex flex-col justify-center items-center md:flex-row md:justify-end gap-4">
             <li id="home">
-              <a href="#">Home</a>
+              <Link to="/" onClick={toggle}> 
+              {/* onClick - TO GET Auto Close Feature */}
+                Home
+              </Link>
             </li>
-            <li id="help">Help</li>
+            <Link to="/offer" onClick={toggle}>
+              Help
+            </Link>
             <li id="offer">Offer</li>
           </ul>
         </div>
